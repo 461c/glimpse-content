@@ -1,0 +1,115 @@
+/* GlimpseContent: all styles stay inside the outline. */
+.glimpse-content {
+  --glimpse-active: #191813;
+  --glimpse-background: #fcfbf8;
+  --glimpse-muted: #888;
+  animation: glimpse-fade-in 240ms ease both;
+  background: transparent;
+  border: 0;
+  bottom: 24px;
+  box-sizing: border-box;
+  font-family: inherit;
+  left: 12px;
+  max-height: 60vh;
+  overflow: auto;
+  padding: 8px 12px;
+  pointer-events: none;
+  position: fixed;
+  scrollbar-width: none;
+  width: 390px;
+  z-index: 100;
+}
+
+@keyframes glimpse-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.glimpse-content a {
+  align-items: center;
+  color: var(--glimpse-active);
+  display: flex;
+  font-size: 14px;
+  font-weight: 400;
+  height: 22px;
+  line-height: 1.5;
+  pointer-events: auto;
+  position: relative;
+  text-decoration: none;
+  width: 36px;
+}
+
+.glimpse-content a::before {
+  background-color: var(--glimpse-muted);
+  border-radius: 2px;
+  content: "";
+  height: 1px;
+  opacity: 0.5;
+  transition: width 160ms ease, background-color 120ms ease, opacity 120ms ease;
+  width: 14px;
+}
+
+.glimpse-content .glimpse-h3::before {
+  width: 22px;
+}
+
+.glimpse-content span {
+  background-color: var(--glimpse-background);
+  border-radius: 4px;
+  box-sizing: border-box;
+  left: 38px;
+  max-width: 320px;
+  opacity: 0;
+  overflow: hidden;
+  padding: 3px 6px;
+  pointer-events: none;
+  position: absolute;
+  text-overflow: ellipsis;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: opacity 120ms ease;
+  white-space: nowrap;
+}
+
+.glimpse-content a:hover span,
+.glimpse-content a:focus-visible span {
+  font-weight: 700;
+  opacity: 1;
+}
+
+.glimpse-content .is-active::before,
+.glimpse-content a:hover::before,
+.glimpse-content a:focus-visible::before {
+  background-color: var(--glimpse-active);
+  opacity: 0.85;
+}
+
+.glimpse-content a:hover::before,
+.glimpse-content a:focus-visible::before {
+  height: 2px;
+  opacity: 1;
+  width: 26px;
+}
+
+.glimpse-content .glimpse-h3:hover::before,
+.glimpse-content .glimpse-h3:focus-visible::before {
+  width: 34px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .glimpse-content {
+    --glimpse-active: #fff;
+    --glimpse-background: #000;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .glimpse-content {
+    animation: none;
+  }
+
+  .glimpse-content a::before,
+  .glimpse-content span {
+    transition: none;
+  }
+}
