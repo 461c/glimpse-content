@@ -4,6 +4,8 @@ A quiet, frameless article outline. Small lines stay in the bottom-left corner; 
 
 Vanilla JavaScript + CSS. No dependencies, build step, or framework.
 
+<img src="./preview.png" alt="GlimpseContent preview" width="320">
+
 ## Install
 
 Copy `glimpse-content.js` and `glimpse-content.css` to your site, then add:
