@@ -20,7 +20,7 @@ The first element matching `article, #body, main` is used as the article contain
 ## Behavior
 
 - Appears after the page finishes loading, with a 240ms fade at its original position.
-- Shows only above 800px, when the article has at least four headings in total.
+- Shows only above 800px, when the article has at least six headings in total.
 - Counts `h1`–`h6`, including the article title; lists only `h2` and `h3`.
 - Uses shorter lines for `h2` and longer lines for `h3`.
 - Reveals only the hovered or keyboard-focused title; the line brightens and grows.
